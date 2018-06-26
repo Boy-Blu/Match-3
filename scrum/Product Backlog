@@ -1,0 +1,55 @@
+Unfinished User stories
+--------------------------------------------------------------------------
+TYPE     : USER STORY 1 : 
+NAME     : Create Board
+OWNER    : ~
+PRIORITY : HIGH
+ESTIMATE : ~
+AS A     : User
+I WANT   : To have a representation of the board
+SO THAT  : I can no what I am doing
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 2 : 
+NAME     : Create Tile
+OWNER    : ~
+PRIORITY : HIGH
+ESTIMATE : ~
+AS A     : User
+I WANT   : To see what Occupies the 'tile' of the board
+SO THAT  : See what is where
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 3 : 
+NAME     : Check if Win
+OWNER    : Anthony
+PRIORITY : HIGH
+ESTIMATE : ~
+AS A     : User
+I WANT   : to Win 
+SO THAT  : I can no what I am doing
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 4 : 
+NAME     : Check if Move
+OWNER    : ~
+PRIORITY : Mid
+ESTIMATE : ~
+AS A     : User
+I WANT   : to move the 'Gems' around
+SO THAT  : I can no what I am doing
+--------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------
+TYPE     : BUG 1
+NAME     : Check if move is slow (even tough not written)
+OWNER    : ~
+PRIORITY : mid
+ESTIMATE : ~
+ISSUE    : Checking every spot is slow, O(4*M*N), If we change it to check every
+		   2nd tiles, ie, (0,0), (0,2), (0,4), (1,1), (1,3), (1,5) OR
+		   checking the row/columns that were recently updated to stop wasted
+		   Time
+		    
+--------------------------------------------------------------------------
