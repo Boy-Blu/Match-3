@@ -22,7 +22,7 @@ SO THAT  : See what is where
 --------------------------------------------------------------------------
 TYPE     : USER STORY 3 : 
 NAME     : Check if Win
-OWNER    : Anthony
+OWNER    : ~
 PRIORITY : HIGH
 ESTIMATE : ~
 AS A     : User
@@ -41,15 +41,3 @@ SO THAT  : I can no what I am doing
 --------------------------------------------------------------------------
 
 
---------------------------------------------------------------------------
-TYPE     : BUG 1
-NAME     : Check if move is slow (even tough not written)
-OWNER    : ~
-PRIORITY : mid
-ESTIMATE : ~
-ISSUE    : Checking every spot is slow, O(4*M*N), If we change it to check every
-		   2nd tiles, ie, (0,0), (0,2), (0,4), (1,1), (1,3), (1,5) OR
-		   checking the row/columns that were recently updated to stop wasted
-		   Time
-		    
---------------------------------------------------------------------------
