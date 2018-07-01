@@ -1,0 +1,91 @@
+Unfinished User stories
+--------------------------------------------------------------------------
+TYPE     : USER STORY 1 : 
+NAME     : Create Board
+OWNER    : ~
+PRIORITY : HIGH
+ESTIMATE : ~
+AS A     : User
+I WANT   : To have a representation of the board
+SO THAT  : I can know what I am doing
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 2 : 
+NAME     : Create Tile
+OWNER    : ~
+PRIORITY : HIGH
+ESTIMATE : ~
+AS A     : User
+I WANT   : To see what Occupies the 'tile' of the board
+SO THAT  : See what is where
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 3 : 
+NAME     : Check if Win
+OWNER    : ~
+PRIORITY : HIGH
+ESTIMATE : ~
+AS A     : User
+I WANT   : to Win 
+SO THAT  : I can no what I am doing
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 4 : 
+NAME     : Check if Move
+OWNER    : ~
+PRIORITY : Mid
+ESTIMATE : ~
+AS A     : User
+I WANT   : to move the 'Gems' around
+SO THAT  : I can no what I am doing
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 5 : 
+NAME     : Load Board
+OWNER    : ~
+PRIORITY : Mid-high
+ESTIMATE : ~
+AS A     : User
+I WANT   : to load a specfic board based around certain rules
+SO THAT  : I can play a 'different' game
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 6 : 
+NAME     : ~
+OWNER    : ~
+PRIORITY : ~
+ESTIMATE : ~
+AS A     : ~
+I WANT   : ~
+SO THAT  : ~
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : USER STORY 7 : 
+NAME     : ~
+OWNER    : ~
+PRIORITY : ~
+ESTIMATE : ~
+AS A     : ~
+I WANT   : ~
+SO THAT  : ~
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG 1
+NAME     : Board can be Singleton
+OWNER    : ~
+PRIORITY : Mid
+ESTIMATE : ~
+ISSUE    : Changing of Board to a singleton design pattern can prevent
+		   multiple boards being used, We only need one board at a time. 
+		   (if required we can design to house two boards for testing purpose
+		   but that for later)
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+TYPE     : BUG ~
+NAME     : ~
+OWNER    : ~
+PRIORITY : ~
+ESTIMATE : ~
+ISSUE    : ~
+--------------------------------------------------------------------------
+
