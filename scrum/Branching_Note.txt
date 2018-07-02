@@ -29,3 +29,4 @@ Merge
 	5. Select Branch you were working on
 	6. Handle Merge Conflicts, make sure the project fully works
 	7. Push master
+	8.(Optional) NOTIFY THE WORLD, Fireworks work great
