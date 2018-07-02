@@ -23,3 +23,9 @@ Branched
 Merge
 	1. Add Commit Push
 	2. Swap to master
+		Team>Switch to>Master
+	3. Pull Master
+	4. Team>Merge
+	5. Select Branch you were working on
+	6. Handle Merge Conflicts, make sure the project fully works
+	7. Push master
