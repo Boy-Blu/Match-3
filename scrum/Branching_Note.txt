@@ -1,0 +1,25 @@
+Git Branching Note:
+
+
+Pre-Branch:
+ 	1. Make sure you are on Master
+ 	2. Pull Master to make sure on latest build
+
+Branching: 
+ 	1. Right click Project
+	2. Team>Switch to>New Branch
+ 	3. Make sure on note:
+ 		Project[Repo Branch]
+ 			If not on project:
+ 			1. Team>Switch to>Other...
+ 			2. Select Branch> Checkout
+ 	4. Do work
+
+Branched
+	1. Do Work...?
+	2. Add commit Push
+	3. repeat until finished
+
+Merge
+	1. Add Commit Push
+	2. Swap to master
