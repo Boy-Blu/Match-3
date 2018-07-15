@@ -1,2 +1,41 @@
 Design Notes:
-- 
+- When Confirming if game is still playable, Moves exists, moves to be played after 'drop', 
+  Check every other spot in a diagonal fashion.
+
+- Game to be played in a state like fashion:
+		- (1) User makes move
+		- (2) Check if Move is valid(if invalid go to (1)) 
+		- (3) Remove 'Gems' and drop new Gems
+		- (4) Check for Matched due to drop(if there exist a match, go to '3')
+		- (5) Check for valid moves (if yes, Go to (1))
+		- (6) Shuffle till valid, Then go to (1)
+		
+-Checking algorithm note, 
+	Basic idea:
+		Check the whole board
+	Possibly better idea:
+		Given a x_1, y_1, x_2 Check within new smaller box with a size buffer of 1
+		Reason:
+			Assume board takes up m x n tiles, to check every tile takes O(4 x m/2 x n/2)(4 Cardinal directions x
+			Checking every other spot horizontal & vertical), or O(m x n) Checks (on best case, No matches),
+			if we constrain everything such that it within a smaller area, we reduce the time to 
+			O(min((x_2-x_1)+2,m) x min((y_1)+1,n) Notice that 0<=x_1<=x_2<=m & 0<=y_1<n. 
+			This is guaranteed to work under the case that 3 < m x n. 
+			A y_2 is not needed due to tiles always dropped from the top
+		
+			Also x_1, x_2 denotes the walls of the area. if a matched three is dropped only the columns with 
+			that match has moved implying we do not need to check what's below, or far right/left of that match
+			since those are untouched, and cannot have a possible move
+		
+			Buffer of 1 is used so that the diagonal pattern checks every move within the area 
+		
+- Factory Pattern might be something to look into. Mainly for the tiles
+
+- Using a 2d Array to store tile info Might be the best way to work, I can't think of a better custom ADT
+
+- Checking for possible moves: Top Right to Bottom left,
+	Store the valid move location, in hopes of reducing Total time
+
+- Checking if move is valid, Only Check it's own location
+
+- Checking for matches, Go from Bottom left of area to top right 

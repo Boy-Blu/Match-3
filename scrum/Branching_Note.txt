@@ -7,7 +7,7 @@ Pre-Branch:
 
 Branching: 
  	1. Right click Project
-	2. Team>Switch to>New Branch
+	2. Team>Switch to>New Branch(Name to User story)
  	3. Make sure on note:
  		Project[Repo Branch]
  			If not on project:
