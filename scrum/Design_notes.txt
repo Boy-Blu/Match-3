@@ -37,5 +37,5 @@ Design Notes:
 	Store the valid move location, in hopes of reducing Total time
 
 - Checking if move is valid, Only Check it's own location
-
+ 
 - Checking for matches, Go from Bottom left of area to top right 
