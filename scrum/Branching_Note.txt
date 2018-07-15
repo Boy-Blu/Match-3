@@ -14,7 +14,7 @@ Branching:
  			1. Team>Switch to>Other...
  			2. Select Branch> Checkout
  	4. Do work
-
+ 
 Branched
 	1. Do Work...?
 	2. Add commit Push
