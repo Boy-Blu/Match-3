@@ -31,17 +31,7 @@ public class Board {
 	}
 	// Make a board designed By a custom load pattern, 
 	// stored in some special save file or something
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	public String toString() {
 		String s = "";
