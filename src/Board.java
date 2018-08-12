@@ -38,7 +38,7 @@ public class Board {
 		for (int i =grid.length-1; i>=0; i--) {
 			s+= "Row "+(i)+": ";
 			for(int j =0; j< grid[i].length; j++) {
-				s+=  grid[i][j].GetTile().GetColour()  +" ";
+				s+= (char) (grid[i][j].GetTile().GetColour() + 96) +" ";
 			}	
 			s += '\n';	
 		}
