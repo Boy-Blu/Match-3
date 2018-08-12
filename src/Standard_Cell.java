@@ -3,7 +3,7 @@ public class Standard_Cell extends Cell{
 
 	public Standard_Cell() {
 		this.held = null;
-		this.color=0;
+		this.colour=Type.NOTHING;
 	}
 
 	@Override
@@ -13,9 +13,19 @@ public class Standard_Cell extends Cell{
 	}
 
 	@Override
+	public Type getColour(){
+		return this.colour;
+	}
+	
+	@Override
+	public void setColour(Type c) {
+		this.colour = c;
+	}
+	
+	@Override
 	public void RemoveTile() {
 		// TODO Auto-generated method stub
-		color = 0;
+		colour = Type.NOTHING;
 		held = null;
 	}
 
@@ -24,6 +34,8 @@ public class Standard_Cell extends Cell{
 		// TODO Auto-generated method stub
 		held = newtile;
 	}
+
+
 	
 	
 }

@@ -1,6 +1,6 @@
 
 public abstract class Tile {
-	int color;
+	private int color;
 	
 	public abstract int GetColour();
 	
