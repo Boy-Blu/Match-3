@@ -36,20 +36,26 @@ public class Board {
 	public String toString() {
 		String s = "";
 		for (int i =grid.length-1; i>=0; i--) {
-			s+= "Row "+(i)+": ";
+			s += "Row "+(i)+": ";
+			
 			for(int j =0; j< grid[i].length; j++) {
-				s+= (char) (grid[i][j].GetTile().GetColour() + 96) +" ";
+				char c = (char) grid[i][j].GetTile().GetColour();
+				if(grid[i][j].getColour()==Type.NOTHING) c = (char) (c + 96);
+				else c = (char) (c + 64);
+				s += c +" ";
 			}	
+			
 			s += '\n';	
 		}
 		
 		return s;
-		
 	}
 	
 	public static void main(String[] args) {
 		Board i = new Board();
 		System.out.println(i);
 		System.out.println(grid[0][0].GetTile().GetColour());
+		grid[0][0].setColour(Type.SELECTED);
+		System.out.println(i);
 	}
 }
