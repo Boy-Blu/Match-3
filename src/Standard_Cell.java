@@ -34,7 +34,7 @@ public class Standard_Cell extends Cell{
 		// TODO Auto-generated method stub
 		held = newtile;
 	}
-
+	
 
 	
 	

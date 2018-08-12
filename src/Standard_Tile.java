@@ -10,5 +10,11 @@ public class Standard_Tile extends Tile{
 		// TODO Auto-generated method stub
 		return this.color;
 	}
+
+	@Override
+	public int type() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
