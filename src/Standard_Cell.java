@@ -20,37 +20,6 @@ public class Standard_Cell extends Cell{
 	@Override
 	public void setColour(Type c) {
 		this.colour = c;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	@Override
