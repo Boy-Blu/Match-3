@@ -1,12 +1,8 @@
 
 public abstract class Tile {
-	private int color;
+	protected int color;
 	
 	public abstract int GetColour();
-	
-	
-	
-	
 	
 	// omri added a comment
 	// this shouldn not be in master
