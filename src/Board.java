@@ -32,7 +32,7 @@ public class Board {
 	// Make a board designed By a custom load pattern, 
 	// stored in some special save file or something
 
-	
+
 	public String toString() {
 		String s = "";
 		for (int i =grid.length-1; i>=0; i--) {
@@ -42,14 +42,8 @@ public class Board {
 			}	
 			s += '\n';	
 		}
-		
+
 		return s;
-		
-	}
-	
-	public static void main(String[] args) {
-		Board i = new Board();
-		System.out.println(i);
-		System.out.println(grid[0][0].GetTile().GetColour());
+
 	}
 }

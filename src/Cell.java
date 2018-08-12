@@ -9,5 +9,4 @@ public abstract class Cell {
 	public abstract Tile GetTile();
 	public abstract void RemoveTile();
 	public abstract void PlaceTile(Tile newtile);
-	
 }
