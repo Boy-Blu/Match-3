@@ -5,7 +5,7 @@ public class Board {
 	 * This is the main Class, Designed to house all 
 	 * elements the user will be using
 	 */
-	Cell[][] grid;
+	static Cell[][] grid;
 	public Board() {
 		/**
 		 * 	Creates a Board with 8, 8 board
@@ -14,7 +14,7 @@ public class Board {
 	}
 	public Board(int m, int n) {
 		/**
-		 * 	Creates the Board with m, n dimensions
+		 * Creates the Board with m, n dimensions
 		 * @param: m, How wide the board is
 		 * @param: n, How tall the boards is
 		 * 
@@ -35,7 +35,7 @@ public class Board {
 	
 	public String toString() {
 		String s = "";
-		for (int i =0; i<grid.length; i++) {
+		for (int i =grid.length-1; i>=0; i--) {
 			s+= "Row "+(i)+": ";
 			for(int j =0; j< grid[i].length; j++) {
 				s+=  grid[i][j].GetTile().GetColour()  +" ";
@@ -50,5 +50,6 @@ public class Board {
 	public static void main(String[] args) {
 		Board i = new Board();
 		System.out.println(i);
+		System.out.println(grid[0][0].GetTile().GetColour());
 	}
 }
