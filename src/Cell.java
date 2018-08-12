@@ -6,9 +6,9 @@ public abstract class Cell {
 	protected Type colour;
 	protected Cell[][] breadth;
 	
-	public abstract Tile GetTile();
+	public abstract Tile getTile();
 	public abstract Type getColour();
 	public abstract void setColour(Type c);
-	public abstract void RemoveTile();
-	public abstract void PlaceTile(Tile newtile);
+	public abstract void removeTile();
+	public abstract void setTile(Tile newtile);
 }

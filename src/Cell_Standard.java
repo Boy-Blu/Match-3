@@ -1,13 +1,13 @@
 
-public class Standard_Cell extends Cell{
+public class Cell_Standard extends Cell{
 
-	public Standard_Cell() {
+	public Cell_Standard() {
 		this.held = null;
 		this.colour=Type.NOTHING;
 	}
 
 	@Override
-	public Tile GetTile() {
+	public Tile getTile() {
 		// TODO Auto-generated method stub
 		return held;
 	}
@@ -23,14 +23,14 @@ public class Standard_Cell extends Cell{
 	}
 	
 	@Override
-	public void RemoveTile() {
+	public void removeTile() {
 		// TODO Auto-generated method stub
-		colour = Type.NOTHING;
+		colour = Type.DELETED;
 		held = null;
 	}
 
 	@Override
-	public void PlaceTile(Tile newtile) {
+	public void setTile(Tile newtile) {
 		// TODO Auto-generated method stub
 		held = newtile;
 	}
