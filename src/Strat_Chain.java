@@ -31,15 +31,29 @@ public class Strat_Chain implements Strategy_Match{
 				//Update all tile
 				b.getMovelist().clear();
 			}else {
-				
-				
-		
+				//invalid made move
+			}
+		}else if(b.getMovelist().contains(b.getGrid()[i][j])){
+			//Case where an element exists inside of the move list
+			// To remove it and all those who follow it
+			
+			int k = b.getMovelist().indexOf(b.getGrid()[i][j]);
+			while(b.getMovelist().size()>k) {
+				b.getMovelist().remove(k);
+			}
+			
+		}else {
+			//add to move list
+			if(b.getMovelist().size()==0) {
+				//first element
+				b.getMovelist().add(b.getGrid()[i][j]);
+			}else {
+				//'next' element
+				if(b.getMovelist().get(b.getMovelist().size()).getTile().getColour() == b.getGrid()[i][j].getTile().getColour()) {
+					b.getMovelist().add(b.getGrid()[i][j]);
+				}
 			}
 		}
-		b.getMovelist().get(b.getMovelist().size());
-		
-		
-		
 	}
 
 	@Override
