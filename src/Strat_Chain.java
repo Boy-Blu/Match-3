@@ -24,7 +24,7 @@ public class Strat_Chain implements Strategy_Match{
 			//Update the tile
 			
 			
-		}else if(b.getGrid()[i][j] == b.getMovelist().get(b.getMovelist().size())) {
+		}else if(b.getGrid()[i][j] == b.getMovelist().get(b.getMovelist().size()-1)) {
 			//Last move is made move, Remove everything on Board
 			if (b.getMovelist().size()>2) {
 				//Valid Clearing move
@@ -49,7 +49,7 @@ public class Strat_Chain implements Strategy_Match{
 				b.getMovelist().add(b.getGrid()[i][j]);
 			}else {
 				//'next' element
-				if(b.getMovelist().get(b.getMovelist().size()).getTile().getColour() == b.getGrid()[i][j].getTile().getColour()) {
+				if(b.getMovelist().get(b.getMovelist().size()-1).getTile().getColour() == b.getGrid()[i][j].getTile().getColour()) {
 					b.getMovelist().add(b.getGrid()[i][j]);
 				}
 			}

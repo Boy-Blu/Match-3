@@ -35,7 +35,13 @@ public class Text_Version {
 				e.printStackTrace();
 			} catch (NumberFormatException v) {
 			}
-			 
+			catch (java.lang.ArrayIndexOutOfBoundsException z) {
+			}
+			game.move(m, n);
+			
+			for(int i =0; i<game.getMovelist().size();i++) {
+				System.out.println(game.getMovelist().get(i));
+			}
 			// make move
 			
 			// get move
