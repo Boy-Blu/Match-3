@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="Board" project="Match" file="/Match/src/Board.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="268" width="165" x="214" y="-22"/>    
+    <position height="315" width="170" x="214" y="-22"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="Strat_Click" project="Match" file="/Match/src/Strat_Click.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="237" y="397"/>    
+    <position height="-1" width="-1" x="251" y="395"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,8 +111,8 @@
   </class>  
   <class id="13" language="java" name="Cell_Standard" project="Match" file="/Match/src/Cell_Standard.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="478" y="288"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="221" width="152" x="394" y="196"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
