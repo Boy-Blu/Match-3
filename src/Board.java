@@ -42,16 +42,14 @@ public class Board {
 	 * @param j
 	 */
 	private void connect(int i, int j) {
-		int[] temp = {i-1,j,i-1, j-1, i, j-1, i+1, j-1};
+		int[] temp = {i,j-1,i-1, j-1, i-1, j, i-1, j+1};
 		for(int k =0; k<8; k+=2) {	
-			Cell node = null;
 			try {
-				node = grid[temp[k]][temp[k+1]];
-				node.setbeardth(4+(k/2), grid[i][j]);
+				grid[temp[k]][temp[k+1]].setbeardth(4+(k/2), grid[i][j]);
 			} catch (ArrayIndexOutOfBoundsException e) {
 				// TODO: handle exception
+				System.out.println("l");
 			} catch (NullPointerException npe) {
-				System.out.println(" "+node);
 				System.out.println(i+":i  "+j+":j  "+temp[k]+":k1 "+temp[k+1]+ "   ~K:"+k);
 			}
 		}

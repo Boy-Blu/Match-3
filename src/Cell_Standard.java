@@ -39,7 +39,7 @@ public class Cell_Standard extends Cell{
 	@Override
 	public void setbeardth(int index, Cell c) {
 		// TODO Auto-generated method stub
-		if(!(index<0||index>8)){
+		if((index<0||index>8)){
 			return;
 		}
 		if(index>3) {
