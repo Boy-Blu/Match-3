@@ -41,11 +41,12 @@ public class Text_Version {
 			catch (java.lang.ArrayIndexOutOfBoundsException z) {
 			
 			}
-			game.move(m, n);
+			game.move(n, m);	// These are flipped!!!! 
 			
-			for(int i =0; i<game.getMovelist().size();i++) {
-				System.out.println(game.getMovelist().get(i));
-			}
+//			for(int i =0; i<game.getMovelist().size();i++) {
+//				System.out.println(game.getMovelist().get(i));
+//			}
+			System.out.println(game);
 			// make move
 			
 			// get move
