@@ -7,6 +7,7 @@ public abstract class Cell {
 	protected Cell[] breadth;
 	/* 	1	2	3	
 	 * 
+	 *  0	c	4
 	 * 
 	 * 	7	6	5
 	 * 

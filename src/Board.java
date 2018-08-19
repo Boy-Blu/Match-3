@@ -17,6 +17,7 @@ public class Board {
 	public Board() {
 		this(8,8);
 	}
+	
 	/**
 	 * Creates the Board with m, n dimensions
 	 * @param: m, How wide the board is
@@ -35,9 +36,15 @@ public class Board {
 				connect(i,j);
 			}
 		}
+		// Check 
+		//for(int i =0;i<8;i++) {
+		//		System.out.println((char)(grid[1][1].breadth[i].getTile().getColour()+64));
+		//}
 	}
+	
+	
 	/**
-	 * 
+	 * Helper for the constructor, links all cells together 
 	 * @param i
 	 * @param j
 	 */
@@ -48,12 +55,11 @@ public class Board {
 				grid[temp[k]][temp[k+1]].setbeardth(4+(k/2), grid[i][j]);
 			} catch (ArrayIndexOutOfBoundsException e) {
 				// TODO: handle exception
-				System.out.println("l");
+
 			} catch (NullPointerException npe) {
 				System.out.println(i+":i  "+j+":j  "+temp[k]+":k1 "+temp[k+1]+ "   ~K:"+k);
 			}
 		}
-
 	}
 
 	/**
@@ -75,6 +81,20 @@ public class Board {
 
 
 	/**
+	 * @return the grid
+	 */
+	public Cell[][] getGrid() {
+		return grid;
+	}
+
+	/**
+	 * @return the movelist
+	 */
+	public ArrayList<Cell> getMovelist() {
+		return movelist;
+	}
+	
+	/**
 	 * 
 	 */
 	public String toString() {
@@ -92,33 +112,5 @@ public class Board {
 			s += '\n';	
 		}
 		return s;
-	}
-
-	/**
-	 * @return the grid
-	 */
-	public Cell[][] getGrid() {
-		return grid;
-	}
-
-	/**
-	 * @return the movelist
-	 */
-	public ArrayList<Cell> getMovelist() {
-		return movelist;
-	}
-
-	/**
-	 * @param grid the grid to set
-	 */
-	public void setGrid(Cell[][] grid) {
-		this.grid = grid;
-	}
-
-	/**
-	 * @param movelist the movelist to set
-	 */
-	public void setMovelist(ArrayList<Cell> movelist) {
-		this.movelist = movelist;
 	}
 }
