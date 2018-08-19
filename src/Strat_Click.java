@@ -10,6 +10,11 @@ public class Strat_Click implements Strategy_Match{
 		ArrayList<Cell> moveList = new ArrayList<Cell>();
 		Cell cur = b.getGrid()[i][j];
 		
+		if(b.getMCI().hasCell(cur)){
+			b.getMCI().execute();
+			return;
+		}
+		
 		LinkedList<Cell> queue = new LinkedList<Cell>();
 		ArrayList<Cell> visited = new ArrayList<Cell>();
 		queue.add(cur);
@@ -28,17 +33,15 @@ public class Strat_Click implements Strategy_Match{
 			}
 		}
 		
+		// If no neighbors match the given cell then terminate move
 		if(visited.size() < 2){
 			visited.clear();
 			return;
 		}
+		// Add all the matching neighbors to the MCI
 		for(Cell c : visited){
-			// Add a new CommandPattern of c to the MCI in board ??
-			c.setColour(Type.SELECTED);
+			b.getMCI().add(new MoveCommandCell(c));
 		}
-		
-		
-		
 	}
 
 	@Override

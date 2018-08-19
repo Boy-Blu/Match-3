@@ -122,4 +122,7 @@ public class Board {
 		}
 		return s;
 	}
+	public MoveCommandInvoker getMCI(){
+		return this.mci;
+	}
 }

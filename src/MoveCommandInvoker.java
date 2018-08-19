@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class MoveCommandInvoker {
-	private ArrayList<MoveCommand> mc;
+	private ArrayList<MoveCommand> mc = new ArrayList<MoveCommand>();
 	
 	/**
 	 * Executes all move commands
