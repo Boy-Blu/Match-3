@@ -10,6 +10,7 @@ public class Board {
 	private Strategy_Match sm;
 	private Cell[][] grid;
 	private ArrayList<Cell> movelist ;
+	private MoveCommandInvoker mci;
 
 	/**
 	 * 	Creates a Board with 8, 8 board
@@ -17,7 +18,7 @@ public class Board {
 	public Board() {
 		this(8,8);
 	}
-	
+
 	/**
 	 * Creates the Board with m, n dimensions
 	 * @param: m, How wide the board is
@@ -29,6 +30,7 @@ public class Board {
 		movelist = new ArrayList<Cell>();
 		sm = new Strat_Chain(); //Change this to test, we can work on a better way do it later
 		grid = new Cell[m][n];
+		mci = new MoveCommandInvoker();
 		for (int i =0; i<m; i++) {
 			for (int j=0; j<n; j++) {
 				grid[i][j] = new Cell_Standard();
@@ -41,8 +43,8 @@ public class Board {
 		//		System.out.println((char)(grid[1][1].breadth[i].getTile().getColour()+64));
 		//}
 	}
-	
-	
+
+
 	/**
 	 * Helper for the constructor, links all cells together 
 	 * @param i
@@ -60,6 +62,7 @@ public class Board {
 				System.out.println(i+":i  "+j+":j  "+temp[k]+":k1 "+temp[k+1]+ "   ~K:"+k);
 			}
 		}
+
 	}
 
 	/**
@@ -93,7 +96,7 @@ public class Board {
 	public ArrayList<Cell> getMovelist() {
 		return movelist;
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -104,10 +107,16 @@ public class Board {
 			s += "Row "+(i)+": ";
 
 			for(int j =0; j< grid[i].length; j++) {
-				char c = (char) grid[i][j].getTile().getColour();
-				if(grid[i][j].getColour()==Type.NOTHING) c = (char) (c + 96);
-				else c = (char) (c + 64);
-				s += c +" ";
+
+				if (grid[i][j].getTile() == null) {
+					s += "~ ";
+				}
+				else {
+					char c = (char) grid[i][j].getTile().getColour();
+					if(grid[i][j].getColour()==Type.NOTHING) c = (char) (c + 96);
+					else c = (char) (c + 64);
+					s += c +" ";
+				}
 			}	
 			s += '\n';	
 		}
