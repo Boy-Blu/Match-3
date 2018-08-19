@@ -27,7 +27,7 @@ public class Board {
 	public Board(int m, int n) {
 		Random rn = new Random();
 		movelist = new ArrayList<Cell>();
-		sm = new Strat_Chain(); //Change this to test, we can work on a better way do it later
+		sm = new Strat_Click(); //Change this to test, we can work on a better way do it later
 		grid = new Cell[m][n];
 		for (int i =0; i<m; i++) {
 			for (int j=0; j<n; j++) {

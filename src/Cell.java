@@ -21,4 +21,5 @@ public abstract class Cell {
 	public abstract void removeTile();
 	public abstract void setTile(Tile newtile);
 	public abstract void setbeardth(int index, Cell c);
+	public abstract Cell[] getBreadth();
 }

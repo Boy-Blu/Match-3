@@ -49,6 +49,9 @@ public class Cell_Standard extends Cell{
 		return;
 	}
 	
+	public Cell[] getBreadth(){
+		return this.breadth;
+	}
 
 	
 	
