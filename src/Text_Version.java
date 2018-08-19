@@ -19,6 +19,9 @@ public class Text_Version {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (NumberFormatException v) {
+			}catch (ArrayIndexOutOfBoundsException e) {
+				m=0;
+				n=0;
 			}
 		}
 		
@@ -36,6 +39,7 @@ public class Text_Version {
 			} catch (NumberFormatException v) {
 			}
 			catch (java.lang.ArrayIndexOutOfBoundsException z) {
+			
 			}
 			game.move(m, n);
 			

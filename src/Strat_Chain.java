@@ -10,12 +10,7 @@ public class Strat_Chain implements Strategy_Match{
 		if (((i<0||i>=m)&&(j<0||j>=n))&&(i!=-1&&j!=-1)) {
 			//Move invalid
 			return;
-		} else if (i==-1&&j==-1){
-			//move clears selection
-			
-			//Add something to remove current status
-			b.getMovelist().clear();
-		}
+		} 
 		
 		if(b.getMovelist().size()<=0) {
 			//Empty List
