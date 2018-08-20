@@ -10,6 +10,7 @@ public class Text_Version {
 		String[] tokens;
 		int m=0;
 		int n=0;
+		System.out.println("Enter grid size mxn");
 		while(m<5 && n<5) {
 			try {
 				tokens = in.readLine().split(" ");
@@ -50,6 +51,10 @@ public class Text_Version {
 			// make move
 			
 			// get move
+			if(!game.checkForMove()){
+				System.out.println("\nNo more moves.");
+				return;
+			}
 		}
 		
 	}
