@@ -51,7 +51,7 @@ public class Board {
 	 * @param j
 	 */
 	private void connect(int i, int j) {
-		int[] temp = {i,j-1,i-1, j-1, i-1, j, i-1, j+1};
+		int[] temp = {i, j-1, i-1, j-1, i-1, j, i-1, j+1};
 		for(int k =0; k<8; k+=2) {	
 			try {
 				grid[temp[k]][temp[k+1]].setbeardth(4+(k/2), grid[i][j]);
@@ -122,6 +122,51 @@ public class Board {
 		}
 		return s;
 	}
+
+	public void drop(){
+		int height = this.grid.length;
+		int width = this.grid[0].length;
+
+		// "drop" the cells in each column, then fill each column
+		for(int x = 0; x < width; x++){
+			Cell[] col = new Cell[height];
+
+			int y = 0;
+			int k = 0;
+			while(y < height){
+				if(grid[y][x].getColour() != Type.DELETED){
+					col[k] = grid[y][x];
+					k++;
+				}
+				y++;
+			}
+			while(k < height){
+				col[k].setColour(Type.DELETED);
+				k++;
+			}
+			fill(col);
+		}
+	}
+
+
+	public void drop(int x){
+
+	}
+
+	public void fill(Cell[] col){
+		Random rn = new Random();
+		int height = col.length;
+
+		for(int i = 0; i < height; i++){
+			if(col[i].getColour() == Type.DELETED){
+				col[i].setTile(new Tile_Standard(rn.nextInt(7)+1));
+				connect(i,i+1);	// find out proper way to connect the cells
+			}
+		}
+	}
+
+
+
 	public MoveCommandInvoker getMCI(){
 		return this.mci;
 	}
