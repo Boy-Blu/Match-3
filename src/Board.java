@@ -98,13 +98,15 @@ public class Board {
 	}
 
 	/**
-	 * 
+	 * Prints the board
 	 */
 	public String toString() {
 		String s = "";
 
+		
+
 		for (int i =grid.length-1; i>=0; i--) {
-			s += "Row "+(i)+": ";
+			s += "Row "+(i)+":  ";
 
 			for(int j =0; j< grid[i].length; j++) {
 
@@ -120,51 +122,72 @@ public class Board {
 			}	
 			s += '\n';	
 		}
+
+		s += "\n        ";
+		for(int i = 0; i < grid[0].length; i++){
+			s += i + " ";
+		}
+
+		s += '\n';
 		return s;
 	}
 
+	/**
+	 * 	Drop method: removes all deleted cells, drops the tiles above them and fills the remaining deleted cells with new tiles
+	 */
 	public void drop(){
 		int height = this.grid.length;
 		int width = this.grid[0].length;
 
 		// "drop" the cells in each column, then fill each column
 		for(int x = 0; x < width; x++){
+
+			// Create temp array for column
 			Cell[] col = new Cell[height];
+
 			int y = 0;
 			int k = 0;
-			
+	
 			while(y < height){
-				if(grid[y][x].getColour() != Type.DELETED){
+				if(grid[y][x].getColour() == Type.SELECTED) return;	// If any cells are selected just return!
+
+				col[y] = grid[y][x];	
+
+				if(grid[y][x].getColour() == Type.NOTHING){
+					col[k].setColour(Type.NOTHING);
 					col[k].setTile(grid[y][x].getTile());
 					k++;
 				}
 				y++;
 			}
+			System.out.println(k);
 			while(k < height){
 				col[k].setColour(Type.DELETED);
+				col[k].removeTile();
 				k++;
 			}
-			fill(col);
+			replaceDeletedInColumn(col);
 		}
 	}
 
-
-	public void drop(int x){
-
-	}
-
-	public void fill(Cell[] col){
+	/**
+	 * Replaces all Cells of Type DELETED in the column with randomly generated cells
+	 * @param col
+	 */
+	private void replaceDeletedInColumn(Cell[] col){
 		Random rn = new Random();
 		int height = col.length;
 
 		for(int i = 0; i < height; i++){
 			if(col[i].getColour() == Type.DELETED){
+
+				// Replace this with TileFactory?
 				col[i].setTile(new Tile_Standard(rn.nextInt(7)+1));
+				col[i].setColour(Type.NOTHING);
+
 			}
 		}
 	}
-
-
 
 	public MoveCommandInvoker getMCI(){
 		return this.mci;
