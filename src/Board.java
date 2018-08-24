@@ -160,7 +160,6 @@ public class Board {
 				}
 				y++;
 			}
-			System.out.println(k);
 			while(k < height){
 				col[k].setColour(Type.DELETED);
 				col[k].removeTile();
