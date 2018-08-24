@@ -45,7 +45,7 @@ public class Text_Version {
 			
 			game.move(n, m);	// These are flipped!!!! 
 			System.out.println(game);
-			game.drop();
+			game.dropAndFill();
 			System.out.println(game);
 			
 			// get move

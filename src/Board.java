@@ -135,7 +135,7 @@ public class Board {
 	/**
 	 * 	Drop method: removes all deleted cells, drops the tiles above them and fills the remaining deleted cells with new tiles
 	 */
-	public void drop(){
+	public void dropAndFill(){
 		int height = this.grid.length;
 		int width = this.grid[0].length;
 
