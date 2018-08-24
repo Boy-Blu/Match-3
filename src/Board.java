@@ -130,12 +130,12 @@ public class Board {
 		// "drop" the cells in each column, then fill each column
 		for(int x = 0; x < width; x++){
 			Cell[] col = new Cell[height];
-
 			int y = 0;
 			int k = 0;
+			
 			while(y < height){
 				if(grid[y][x].getColour() != Type.DELETED){
-					col[k] = grid[y][x];
+					col[k].setTile(grid[y][x].getTile());
 					k++;
 				}
 				y++;
@@ -160,7 +160,6 @@ public class Board {
 		for(int i = 0; i < height; i++){
 			if(col[i].getColour() == Type.DELETED){
 				col[i].setTile(new Tile_Standard(rn.nextInt(7)+1));
-				connect(i,i+1);	// find out proper way to connect the cells
 			}
 		}
 	}
