@@ -28,7 +28,7 @@ public class Board {
 	public Board(int m, int n) {
 		Random rn = new Random();
 		movelist = new ArrayList<Cell>();
-		sm = new Strat_Click(); //Change this to test, we can work on a better way do it later
+		sm = new Strat_Chain(); //Change this to test, we can work on a better way do it later
 		grid = new Cell[m][n];
 		mci = new MoveCommandInvoker();
 		for (int i =0; i<m; i++) {
@@ -66,9 +66,9 @@ public class Board {
 	}
 
 	/**
-	 * 
-	 * @param i
-	 * @param j
+	 * Makes the move on the board
+	 * @param i x coordinate
+	 * @param j y coordinate
 	 */
 	public void move(int i, int j) {
 		sm.move(i, j, this);

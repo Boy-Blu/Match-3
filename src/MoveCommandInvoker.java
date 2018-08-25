@@ -23,15 +23,15 @@ public class MoveCommandInvoker {
 
 	/**
 	 * Removes all Cell Commands up to &
-	 * including cell m
+	 * including cell c
 	 * @param m Cell to be removed
 	 * @return If Cell in the list or not
 	 */
-	public boolean remove(MoveCommand m) {
+	public boolean remove(Cell c) {
 
 		for(int i =0; i<mc.size(); i++) {
-			if(mc.get(i).getCell()==m.getCell()) {
-				for(int j=i;i<mc.size();j++) {
+			if(mc.get(i).getCell()==c) {
+				for(int j=i;j<mc.size();j++) {
 					mc.get(j).removeCell();
 					mc.remove(j);
 				}
@@ -76,5 +76,13 @@ public class MoveCommandInvoker {
 		}
 
 		return mc.get(mc.size()-1).getCell();
+	}
+
+	/**
+	 * get the size of mc
+	 * @return mc size
+	 */
+	public int getSize() {
+		return mc.size();
 	}
 }
