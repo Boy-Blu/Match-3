@@ -17,15 +17,18 @@ public class Cell_Standard extends Cell{
 	public Type getColour(){
 		return this.colour;
 	}
-	
+
 	@Override
 	public void setColour(Type c) {
 		this.colour = c;
 	}
-	
+
 	@Override
 	public void removeTile() {
 		// TODO Auto-generated method stub
+		if(held != null) {
+			this.getTile().getSR().remove(this);
+		}
 		colour = Type.DELETED;
 		held = null;
 	}
@@ -48,11 +51,11 @@ public class Cell_Standard extends Cell{
 		this.breadth[index]=c;
 		return;
 	}
-	
+
 	public Cell[] getBreadth(){
 		return this.breadth;
 	}
 
-	
-	
+
+
 }

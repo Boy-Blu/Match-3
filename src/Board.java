@@ -69,6 +69,8 @@ public class Board {
 	 */
 	public void move(int i, int j) {
 		sm.move(i, j, this);
+		System.out.println(this);
+		this.dropAndFill();
 	}
 
 	/**

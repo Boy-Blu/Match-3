@@ -8,7 +8,6 @@ public class Remove_Strat_Line implements Strategy_Remove {
 		if(c==null)throw new IllegalArgumentException();
 		ref = c.getBoard().getMCI();
 		remove(c, ((Tile_Line)c.getTile()).getDirection());
-		
 	}
 	
 	public void remove(Cell c, boolean d) {

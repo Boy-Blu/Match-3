@@ -1,8 +1,8 @@
 
 public class MoveCommandCell implements MoveCommand {
-	
+
 	Cell c;
-	
+
 	public MoveCommandCell(Cell temp) {
 		// TODO Auto-generated constructor stub
 		this.c = temp;
@@ -11,7 +11,6 @@ public class MoveCommandCell implements MoveCommand {
 
 	@Override
 	public void invoke() {
-		c.setColour(Type.DELETED);
 		c.removeTile();
 	}
 
@@ -20,9 +19,9 @@ public class MoveCommandCell implements MoveCommand {
 		// TODO Auto-generated method stub
 		return c;
 	}
-	
-	
-	public void removeCell() {
+
+
+	public void removeCell(){
 		c.setColour(Type.NOTHING);
 	}
 

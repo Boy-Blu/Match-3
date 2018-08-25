@@ -10,6 +10,10 @@ public abstract class Tile {
 		this.sr.remove(c);
 	}
 	
+	public Strategy_Remove getSR() {
+		return sr;
+	}
+	
 	// omri added a comment
 	// this shouldn not be in master
 	// third comment PLS HELP
