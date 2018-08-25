@@ -55,6 +55,8 @@ public class Text_Version {
 		}
 
 	}
+	
+	//This is for mvc later on
 	public void run(Board game) {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println(game);
@@ -87,9 +89,6 @@ public class Text_Version {
 		}
 
 	}
-
-
-
 
 	public static void main(String[] args) {
 		run();

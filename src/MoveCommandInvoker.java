@@ -31,9 +31,11 @@ public class MoveCommandInvoker {
 
 		for(int i =0; i<mc.size(); i++) {
 			if(mc.get(i).getCell()==c) {
-				for(int j=i;j<mc.size();j++) {
-					mc.get(j).removeCell();
-					mc.remove(j);
+				int s = mc.size();
+				for(int j=i;j<s;j++) {
+					mc.get(i).removeCell();
+					mc.remove(i);
+					
 				}
 				return true;
 			}

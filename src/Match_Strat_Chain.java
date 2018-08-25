@@ -6,8 +6,8 @@ public class Match_Strat_Chain implements Strategy_Match{
 		// TODO Auto-generated method stub
 		int m = b.getGrid()[0].length;
 		int n = b.getGrid().length;
-		
-		
+
+
 		if ((i<0||i>=m)&&(j<0||j>=n)) {
 			//reject move
 			return;
@@ -30,8 +30,8 @@ public class Match_Strat_Chain implements Strategy_Match{
 				insert.getTile().getColour()==0) {
 			// Same Colour as the other Cells, or list is filled with 
 			// colour 0 tiles or added Tile is 0
-			
-			
+
+
 			//Checks if right beside each other
 			for(Cell c: b.getMCI().getLastCell().getBreadth()) {
 				if(c != null && c == insert) {
@@ -48,8 +48,42 @@ public class Match_Strat_Chain implements Strategy_Match{
 
 	@Override
 	public boolean checkForMove(Board b) {
-		// TODO Auto-generated method stub
-		return true;
+		if (b.getMovelist().size()==0) { // Movelist is empty, Store new values in it
+			for (int i = 0; i < b.getGrid().length; i++) {
+				for (int j = 0; j < b.getGrid()[0].length; j++) {
+					Cell c = b.getGrid()[i][j];
+					int count =0;
+					valid_move: for(Cell p: c.getBreadth()) {
+						if (p!= null&& p.getTile()!=null&&p.getTile().getColour()==c.getTile().getColour()) {
+							count ++;
+						}
+						if (count >=2) {
+							b.getMovelist().add(c);
+							break valid_move;
+						}
+					}
+				}
+			}
+		}else { //Check moves in move_list
+			for(int i =0; 0< b.getMovelist().size(); i++) {
+				int count =0;
+				Cell c = b.getMovelist().get(i);
+				for(Cell p: c.getBreadth()) {
+					if (p!= null&& p.getTile()!=null&&p.getTile().getColour()==c.getTile().getColour()) {
+						count ++;
+					}
+					if (count >=2) {
+						return true;
+					}
+				}
+				//We are decreasing the move list size, 
+				//so we have to decrease our counter
+				i--;
+				b.getMovelist().remove(c);
+			}
+		return checkForMove(b);
+		}
+		return b.getMovelist().size()>0;
 	}
 
 }

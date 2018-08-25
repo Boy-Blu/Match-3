@@ -27,8 +27,11 @@ public class Board {
 	 */
 	public Board(int m, int n) {
 		Random rn = new Random();
+		
 		movelist = new ArrayList<Cell>();
+		
 		sm = new Match_Strat_Click(); //Change this to test, we can work on a better way do it later
+		
 		grid = new Cell[m][n];
 		mci = new MoveCommandInvoker();
 		for (int i =0; i<m; i++) {
@@ -38,14 +41,14 @@ public class Board {
 				connect(i,j);
 			}
 		}
-		Cell.grid = this; //All Cells reference this board
+		Cell.grid = this; //All Cells reference this board, Static Value
 	}
 
 
 	/**
 	 * Helper for the constructor, links all cells together 
-	 * @param i
-	 * @param j
+	 * @param i reference on i
+	 * @param j reference on j
 	 */
 	private void connect(int i, int j) {
 		int[] temp = {i, j-1, i-1, j-1, i-1, j, i-1, j+1};
@@ -74,8 +77,8 @@ public class Board {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Checks if a move exists
+	 * @return true if a move exists
 	 */
 	public boolean checkForMove() {
 		return sm.checkForMove(this);
@@ -96,9 +99,7 @@ public class Board {
 		return movelist;
 	}
 
-	/**
-	 * Prints the board
-	 */
+	
 	public String toString() {
 		String s = "";
 
@@ -186,7 +187,11 @@ public class Board {
 			}
 		}
 	}
-
+	
+	/**
+	 * Getter for the MCI
+	 * @return mci
+	 */
 	public MoveCommandInvoker getMCI(){
 		return this.mci;
 	}
