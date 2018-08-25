@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class MoveCommandInvoker {
 	private ArrayList<MoveCommand> mc = new ArrayList<MoveCommand>();
-	
+
 	/**
 	 * Executes all move commands
 	 */
@@ -12,7 +12,7 @@ public class MoveCommandInvoker {
 		}
 		mc.clear();
 	}
-	
+
 	/**
 	 * Adds a new MoveCommand
 	 * @param m - the move command
@@ -20,7 +20,7 @@ public class MoveCommandInvoker {
 	public void add(MoveCommand m) {
 		mc.add(m);
 	}
-	
+
 	/**
 	 * Removes all Cell Commands up to &
 	 * including cell m
@@ -40,7 +40,7 @@ public class MoveCommandInvoker {
 		}
 		return false;
 	}
-	
+
 	public boolean hasCell(Cell c) {
 		for(int i =0; i<mc.size(); i++) {
 			if(mc.get(i).getCell()==c) {
@@ -48,5 +48,33 @@ public class MoveCommandInvoker {
 			}
 		}
 		return false;
+	}
+
+
+	/**
+	 * Gets the Colour of what occupies the move Command list
+	 * @return Colour of the Cell in mc or -1 if list is empty
+	 */
+	public int getColor() {
+		int col = -1;
+		for(MoveCommand i: mc) {
+			col=i.getCell().getTile().getColour();
+			if(col>0) {
+				return col;
+			}
+		}
+		return col;
+	}
+
+	/**
+	 * Gets the last Cell in the mc list
+	 * @return The last Cell or Null if the list is empty
+	 */
+	public Cell getLastCell() {
+		if( mc.size()==0) {
+			return null;
+		}
+
+		return mc.get(mc.size()-1).getCell();
 	}
 }

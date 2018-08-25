@@ -7,47 +7,33 @@ public class Strat_Chain implements Strategy_Match{
 		int m = b.getGrid()[0].length;
 		int n = b.getGrid().length;
 		
-		if (((i<0||i>=m)&&(j<0||j>=n))&&(i!=-1&&j!=-1)) {
-			//Move invalid
+		
+		if ((i<0||i>=m)&&(j<0||j>=n)) {
+			//reject move
 			return;
 		} 
-		
-		if(b.getMovelist().size()<=0) {
-			//Empty List
-			b.getMovelist().add(b.getGrid()[i][j]);
+		Cell insert = b.getGrid()[i][j];
+		if(b.getMCI().getColor()==-1) {
+			// Move list is empty
+			b.getMCI().add(new MoveCommandCell(insert));
+		}else if(b.getMCI().hasCell(insert)){
+			//Move is repeated
 			
-			//Update the tile
 			
 			
-		}else if(b.getGrid()[i][j] == b.getMovelist().get(b.getMovelist().size()-1)) {
-			//Last move is made move, Remove everything on Board
-			if (b.getMovelist().size()>2) {
-				//Valid Clearing move
-				//Update all tile
-				b.getMovelist().clear();
-			}else {
-				//invalid made move
-			}
-		}else if(b.getMovelist().contains(b.getGrid()[i][j])){
-			//Case where an element exists inside of the move list
-			// To remove it and all those who follow it
 			
-			int k = b.getMovelist().indexOf(b.getGrid()[i][j]);
-			while(b.getMovelist().size()>k) {
-				b.getMovelist().remove(k);
-			}
+		}else if(b.getMCI().getColor() ==0 || 
+				b.getMCI().getColor() == insert.getTile().getColour() ||
+				insert.getTile().getColour()==0) {
+			// Same Colour as the other Cells, or list is filled with 
+			// colour 0 tiles or added Tile is 0	
+			
+			
+			
 			
 		}else {
-			//add to move list
-			if(b.getMovelist().size()==0) {
-				//first element
-				b.getMovelist().add(b.getGrid()[i][j]);
-			}else {
-				//'next' element
-				if(b.getMovelist().get(b.getMovelist().size()-1).getTile().getColour() == b.getGrid()[i][j].getTile().getColour()) {
-					b.getMovelist().add(b.getGrid()[i][j]);
-				}
-			}
+			//reject move
+			return;
 		}
 	}
 
