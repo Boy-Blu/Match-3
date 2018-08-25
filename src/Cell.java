@@ -2,6 +2,7 @@ public abstract class Cell {
 	/**
 	 * This contains the tile that is to be matched
 	 */
+	protected static Board grid;
 	protected Tile held;
 	protected Type colour;
 	protected Cell[] breadth;
@@ -22,4 +23,8 @@ public abstract class Cell {
 	public abstract void setTile(Tile newtile);
 	public abstract void setbeardth(int index, Cell c);
 	public abstract Cell[] getBreadth();
+	public Board getBoard() {
+		// TODO Auto-generated method stub
+		return grid;
+	}
 }

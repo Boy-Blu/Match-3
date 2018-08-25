@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class Strat_Click implements Strategy_Match{
+public class Match_Strat_Click implements Strategy_Match{
 
 	@Override
 	public void move(int i, int j, Board b) {	

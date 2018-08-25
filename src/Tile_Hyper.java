@@ -3,6 +3,7 @@ public class Tile_Hyper extends Tile{
 
 	public Tile_Hyper() {
 		this.color = 0;
+		this.sr = new Remove_Strat_Hyper();
 	}
 
 	@Override
@@ -16,5 +17,4 @@ public class Tile_Hyper extends Tile{
 		// TODO Auto-generated method stub
 		return Type.HYPER;
 	}
-	
 }

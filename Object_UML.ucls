@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.1" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="TileFactory" project="Match" file="/Match/src/TileFactory.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="Strat_Chain" project="Match" file="/Match/src/Strat_Chain.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="Match_Strat_Chain" project="Match" file="/Match/src/Match_Strat_Chain.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="49" y="393"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -55,8 +55,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="Strat_Click" project="Match" file="/Match/src/Strat_Click.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="Match_Strat_Click" project="Match" file="/Match/src/Match_Strat_Click.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="251" y="395"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -120,67 +120,67 @@
   </class>  
   <association id="14">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="15" name="breadth">        
-        <position height="0" width="0" x="52" y="-81"/>      
-      </attribute>      
-      <multiplicity id="16" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="52" y="-81"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="17">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <generalization id="18">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <realization id="19">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="8"/>  
-  </realization>  
-  <association id="20">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="21" name="held">        
+      <attribute id="15" name="held">        
         <position height="0" width="0" x="-75" y="-17"/>      
       </attribute>      
-      <multiplicity id="22" minimum="0" maximum="1">        
+      <multiplicity id="16" minimum="0" maximum="1">        
         <position height="0" width="0" x="-75" y="-17"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="23">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="2"/>  
-  </generalization>  
-  <generalization id="24">    
+  <generalization id="17">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  
-  <association id="25">    
+  <realization id="18">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="20">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <association id="21">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="26" name="grid">        
+      <attribute id="22" name="grid">        
         <position height="0" width="0" x="-158" y="-86"/>      
       </attribute>      
-      <multiplicity id="27" minimum="0" maximum="2147483647">        
+      <multiplicity id="23" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="-158" y="-86"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="10"/>    
+  <realization id="24">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  
+  <association id="26">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="27" name="breadth">        
+        <position height="0" width="0" x="52" y="-81"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="52" y="-81"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <generalization id="29">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="2"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
