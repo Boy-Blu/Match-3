@@ -8,22 +8,6 @@ public class Cell_Standard extends Cell{
 	}
 
 	@Override
-	public Tile getTile() {
-		// TODO Auto-generated method stub
-		return held;
-	}
-
-	@Override
-	public Type getColour(){
-		return this.colour;
-	}
-
-	@Override
-	public void setColour(Type c) {
-		this.colour = c;
-	}
-
-	@Override
 	public void removeTile() {
 		// TODO Auto-generated method stub
 		if(held != null) {
@@ -33,17 +17,14 @@ public class Cell_Standard extends Cell{
 		held = null;
 	}
 
-	@Override
-	public void setTile(Tile newtile) {
-		// TODO Auto-generated method stub
-		held = newtile;
-	}
+	
 
 	@Override
 	public void setbeardth(int index, Cell c) {
 		// TODO Auto-generated method stub
 		if((index<0||index>8)){
 			return;
+			//Should Throw error
 		}
 		if(index>3) {
 			c.setbeardth(index-4, this);
@@ -52,9 +33,6 @@ public class Cell_Standard extends Cell{
 		return;
 	}
 
-	public Cell[] getBreadth(){
-		return this.breadth;
-	}
 
 
 

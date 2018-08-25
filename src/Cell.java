@@ -15,16 +15,35 @@ public abstract class Cell {
 	 * ^Layout of breadth in terms of
 	 * array index
 	 */
-	
-	public abstract Tile getTile();
-	public abstract Type getColour();
-	public abstract void setColour(Type c);
+
 	public abstract void removeTile();
-	public abstract void setTile(Tile newtile);
 	public abstract void setbeardth(int index, Cell c);
-	public abstract Cell[] getBreadth();
 	public Board getBoard() {
 		// TODO Auto-generated method stub
 		return grid;
 	}
+	
+	public Tile getTile() {
+		// TODO Auto-generated method stub
+		return held;
+	}
+
+	public void setTile(Tile newtile) {
+		// TODO Auto-generated method stub
+		held = newtile;
+	}
+	
+	public Cell[] getBreadth(){
+		return this.breadth;
+	}
+
+	public Type getColour(){
+		return this.colour;
+	}
+
+
+	public void setColour(Type c) {
+		this.colour = c;
+	}
+
 }
