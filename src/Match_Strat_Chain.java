@@ -21,6 +21,8 @@ public class Match_Strat_Chain implements Strategy_Match{
 			if(b.getMCI().getLastCell()==insert&&b.getMCI().getSize()>2) {
 				//want to make move
 				b.getMCI().execute();
+				System.out.println(b);
+				b.dropAndFill();
 			}else {
 				//want to remove everything
 				b.getMCI().remove(insert);

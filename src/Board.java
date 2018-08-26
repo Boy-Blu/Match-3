@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Observable;
 
-public class Board {
+public class Board extends Observable{
 	/**
 	 * This is the main Class, Designed to house all 
 	 * elements the user will be using
@@ -42,6 +43,8 @@ public class Board {
 			}
 		}
 		Cell.grid = this; //All Cells reference this board, Static Value
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 
@@ -72,8 +75,8 @@ public class Board {
 	 */
 	public void move(int i, int j) {
 		sm.move(i, j, this);
-		System.out.println(this);
-		this.dropAndFill();
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	/**

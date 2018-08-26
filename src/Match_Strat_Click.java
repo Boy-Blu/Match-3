@@ -13,6 +13,8 @@ public class Match_Strat_Click implements Strategy_Match{
 		// Confirm the previously made move's selection
 		if(b.getMCI().hasCell(cur)){
 			b.getMCI().execute();
+			System.out.println(b);
+			b.dropAndFill();
 			return;
 		}
 
