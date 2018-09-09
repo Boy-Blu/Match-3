@@ -6,10 +6,15 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 
 public class Cell_Panel extends JPanel implements MouseListener{
-	private static boolean isDragged;
+	private static boolean isDragged = false;
+	private static boolean isMove = false;
 	int x,y;
 	
 	public Cell_Panel(int i, int j) {
+		this.x = i;
+		this.y = j;
+		
+		
 		addMouseListener(this);
 	}
 	
@@ -19,20 +24,25 @@ public class Cell_Panel extends JPanel implements MouseListener{
 	}
 
 	@Override
-	//Mouse Enetered Panel
+	//Mouse Entered Panel
 	public void mouseEntered(MouseEvent e) {
+		if(isDragged) {
+			
+		}
 	}
 
 	@Override
 	//Mouse Left Panel
 	public void mouseExited(MouseEvent e) {
-		// Don't Care
+		if(isDragged) {
+			
+		}
 	}
 
 	@Override
 	// Mouse Pressed in panel
 	public void mousePressed(MouseEvent e) {
-		// Don't Care
+		// Don't Care, I lied
 	}
 
 	@Override
