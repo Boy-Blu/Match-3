@@ -14,9 +14,8 @@ public class TitlePanel extends JPanel {
 	public TitlePanel(GuiView view) {
 		
 		this.view = view;
-		
 		this.setBackground(Color.yellow.darker().darker());
-		this.setPreferredSize(new Dimension(300, 300));
+		this.setPreferredSize(new Dimension(816, 75));
 		this.setBorder(BorderFactory.createLineBorder(Color.black, 2));
 	}
 

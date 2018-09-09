@@ -18,7 +18,7 @@ public class Bottom_Panel  extends JPanel {
 		this.view = view;
 		
 		this.setBackground(Color.green.darker().darker());
-		this.setPreferredSize(new Dimension(300, 300));
+		this.setPreferredSize(new Dimension(816, 75));
 		this.setBorder(BorderFactory.createLineBorder(Color.black, 2));
 
 	}

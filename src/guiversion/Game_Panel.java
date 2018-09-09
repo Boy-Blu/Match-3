@@ -18,7 +18,7 @@ public class Game_Panel  extends JPanel {
 		this.view = view;
 		
 		this.setBackground(Color.blue.darker().darker());
-		this.setPreferredSize(new Dimension(300, 300));
+		this.setPreferredSize(new Dimension(816, 816));
 		this.setBorder(BorderFactory.createLineBorder(Color.black, 2));
 
 	}
