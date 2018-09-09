@@ -36,5 +36,9 @@ public class GuiView extends JFrame{
 		this.setJMenuBar(nb);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
+	
+	public Board getBoard() {
+		return game;
+	}
 
 }
