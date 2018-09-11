@@ -28,7 +28,6 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 		this.setPreferredSize(new Dimension(view.getWidth() / 8, view.getHeight() / 8));
 		this.setBorder(BorderFactory.createLineBorder(Color.black, 2));
 		this.setBackground(ColourFactory.makeColour(game.getGrid()[x][y].getTile().getColour()));
-		//this.add(JTA);
 		selected = false;
 
 		this.x = i;
@@ -65,10 +64,9 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	public void update(Observable o, Object arg) {
 		Board b = (Board)o;
 		this.setBackground((b.getGrid()[x][y].getColour()==Type.SELECTED)?
-				ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()).darker():
-					ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()));
+				ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()).darker().darker():
+					ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()).darker());
 	}
-
 
 	// For Dragged Mode
 
@@ -82,22 +80,19 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 			view.setSelected(xth_panel, yth_panel, true);
 			xCurr = xth_panel; 
 			yCurr = yth_panel;
-			System.out.println(xth_panel+" "+ yth_panel);
+			System.out.println("P:"+ xth_panel+" "+ yth_panel);
 		}
 		else if(xCurr!=xth_panel&&yth_panel!=yCurr) {
-			System.out.println(xCurr+" "+ yCurr);
+			System.out.println("C:"+ xCurr+" "+ yCurr);
 			view.setSelected(xCurr, yCurr, false);
 			xCurr = xth_panel; 
 			yCurr = yth_panel;
 		}
 	}
 
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
 
-	}
-
+	public void mouseMoved(MouseEvent e) {}
+	
 	@Override
 	// Mouse Entered Panel
 	public void mouseEntered(MouseEvent e) {
@@ -125,7 +120,6 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 			}
 			isDragged=false;
 		}
-
 	}
 
 	// Mouse Pressed in panel
