@@ -5,87 +5,140 @@ import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.event.MenuDragMouseEvent;
-import javax.swing.event.MenuDragMouseListener;
 
 import gamemodel.Board;
+import gamemodel.Type;
 
-public class Cell_Panel extends JPanel implements MouseListener, MouseMotionListener {
+public class Cell_Panel extends JPanel implements MouseListener, Observer, MouseMotionListener{
 	private static boolean isDragged = false;
-	private static boolean collected = false;
 	private static Board game = null;
 	private static Game_Panel view = null;
 
-	int x, y;
+	private static int xth_panel, yth_panel =0;
+	private static int xCurr, yCurr =0;
+	private int x, y;
+	private boolean selected;
 
 	public Cell_Panel(int i, int j) {
 		this.setPreferredSize(new Dimension(view.getWidth() / 8, view.getHeight() / 8));
 		this.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-		JTextArea JTA = new JTextArea();
-		JTA.setText(i + " + " + j);
-		this.add(JTA);
+		this.setBackground(ColourFactory.makeColour(game.getGrid()[x][y].getTile().getColour()));
+		//this.add(JTA);
+		selected = false;
 
 		this.x = i;
 		this.y = j;
 		addMouseListener(this);
 		addMouseMotionListener(this);
+		game.addObserver(this);
 	}
 
 	public static void setBoard(Board b) {
 		game = b;
 	}
-
+	public static Board getBoard() {
+		return game;
+	}
 	public static void setGame_Panel(Game_Panel gp) {
 		view = gp;
+	}
+	public static int getx() {
+		return xth_panel;
+	}
+
+	public static int gety() {
+		return yth_panel;
 	}
 
 	// Mouse Clicked in panel
 	public void mouseClicked(MouseEvent e) {
-		int xcoor = (int) e.getX() - this.getWidth() / 2;
-		int ycoor = (int) e.getY() - this.getHeight() / 2;
-		if (xcoor * xcoor + ycoor * ycoor <= (this.getHeight() / 2) * (this.getWidth() / 2)) {
-			System.out.println("in");
-		}
+		//System.out.println(game);
+		game.move(x,y);
 	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		Board b = (Board)o;
+		this.setBackground((b.getGrid()[x][y].getColour()==Type.SELECTED)?
+				ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()).darker():
+					ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()));
+	}
+
 
 	// For Dragged Mode
 
 	@Override
+	public void mouseDragged(MouseEvent e) {
+		int xcoor = (int) e.getX()%this.getWidth() - this.getWidth()/2;
+		int ycoor = (int) e.getY()%this.getHeight() - this.getHeight()/2;
+		if (xcoor * xcoor + ycoor * ycoor <= (this.getHeight() / 2) * (this.getWidth() / 2)&&!view.getSelected(xth_panel, yth_panel)) {
+			isDragged=true;
+			game.move(xth_panel, yth_panel);
+			view.setSelected(xth_panel, yth_panel, true);
+			xCurr = xth_panel; 
+			yCurr = yth_panel;
+			System.out.println(xth_panel+" "+ yth_panel);
+		}
+		else if(xCurr!=xth_panel&&yth_panel!=yCurr) {
+			System.out.println(xCurr+" "+ yCurr);
+			view.setSelected(xCurr, yCurr, false);
+			xCurr = xth_panel; 
+			yCurr = yth_panel;
+		}
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
 	// Mouse Entered Panel
 	public void mouseEntered(MouseEvent e) {
+		xth_panel = x;
+		yth_panel = y;
+		//System.out.println("x:"+ xth_panel+ " y:"+ yth_panel);
 
 	}
 
 	@Override
 	// Mouse Left Panel
 	public void mouseExited(MouseEvent e) {
-		collected = false;
-	}
+		xth_panel = -1;
+		yth_panel = -1;
+		selected=false;
+		//System.out.println("x:"+ xth_panel+ " y:"+ yth_panel);
 
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		
-		int xcoor = (int) e.getX() - this.getWidth() / 2;
-		int ycoor = (int) e.getY() - this.getHeight() / 2;
-		if (xcoor * xcoor + ycoor * ycoor <= (this.getHeight() / 2) * (this.getWidth() / 2) && !collected) {
-			System.out.println("inDragged");
-			collected = true;
-		}
 	}
 
 	// Mouse Released in Panel
 	public void mouseReleased(MouseEvent e) {
+		if(isDragged) {
+			if(!(x==xth_panel&&y==yth_panel)) {
+				game.move(xth_panel, yth_panel);
+			}
+			isDragged=false;
+		}
+
 	}
 
 	// Mouse Pressed in panel
 	public void mousePressed(MouseEvent e) {
 	}
 
-	public void mouseMoved(MouseEvent e) {
+	public boolean getSelected() {
+		// TODO Auto-generated method stub
+		return selected;
+	}
+	public void setSelected(Boolean k) {
+		// TODO Auto-generated method stub
+		selected = k;
 	}
 
 }

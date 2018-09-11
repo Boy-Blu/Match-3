@@ -8,7 +8,7 @@ import gamemodel.Board;
 /*
  * Creates the Jframe
  */
-public class GuiView extends JFrame{
+public class GuiView extends JFrame {
 	
 	Board game;
 	private Game_Panel gp;

@@ -33,7 +33,7 @@ public class Board extends Observable{
 
 		movelist = new ArrayList<Cell>();
 
-		sm = new Match_Strat_Click(); //Change this to test, we can work on a better way do it later
+		sm = new Match_Strat_Chain(); //Change this to test, we can work on a better way do it later
 
 		move =0;
 
