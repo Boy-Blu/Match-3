@@ -39,17 +39,33 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 		this.y = j;
 		
 		this.setBackground(ColourFactory.makeColour(game.getGrid()[x][y].getTile().getColour()));
+		
+		//Add listener + observer
 		addMouseListener(this);
 		addMouseMotionListener(this);
 		game.addObserver(this);
 	}
-
+	
+	/**
+	 * Sets the board
+	 * @param b - the board
+	 */
 	public static void setBoard(Board b) {
 		game = b;
 	}
+	
+	/**
+	 * Gets the board
+	 * @return the board
+	 */
 	public static Board getBoard() {
 		return game;
 	}
+	
+	/**
+	 * Sets the Static GamePanel 
+	 * @param gp - the Board
+	 */
 	public static void setGame_Panel(Game_Panel gp) {
 		view = gp;
 	}
@@ -67,7 +83,7 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 		game.move(x,y);
 	}
 
-	@Override
+	//What Happens when Update is called
 	public void update(Observable o, Object arg) {
 		Board b = (Board)o;
 		this.setBackground((b.getGrid()[x][y].getColour()==Type.SELECTED)?
@@ -75,21 +91,22 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 					ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()));
 	}
 
-	// For Dragged Mode
-
-	@Override
+	/**
+	 * What Happens when Dragged
+	 */
 	public void mouseDragged(MouseEvent e) {
 		int xcoor = (int) e.getX()%this.getWidth() - this.getWidth()/2;
 		int ycoor = (int) e.getY()%this.getHeight() - this.getHeight()/2;
 		if (xcoor * xcoor + ycoor * ycoor <= (this.getHeight() / 2) * (this.getWidth() / 2)&&!view.getSelected(xth_panel, yth_panel)) {
-			isDragged=true;
+			//If we are in within a Circle, And Circle was Previously not Selected, ie We left the Cell
+			isDragged=true;//Set dragging to be true
 			game.move(xth_panel, yth_panel);
 			view.setSelected(xth_panel, yth_panel, true);
 			xCurr = xth_panel; 
 			yCurr = yth_panel;
-			System.out.println("P:"+ xth_panel+" "+ yth_panel);
+			System.out.println("P:"+ xth_panel+" "+ yth_panel);//Some Test Statement
 		}
-		else if(xCurr!=xth_panel&&yth_panel!=yCurr) {
+		else if(xCurr!=xth_panel&&yth_panel!=yCurr) {//Update debounce
 			System.out.println("C:"+ xCurr+" "+ yCurr);
 			view.setSelected(xCurr, yCurr, false);
 			xCurr = xth_panel; 
@@ -97,12 +114,13 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 		}
 	}
 
-
+	//Dont Need
 	public void mouseMoved(MouseEvent e) {}
 	
 	@Override
 	// Mouse Entered Panel
 	public void mouseEntered(MouseEvent e) {
+		//Update Posistion
 		xth_panel = x;
 		yth_panel = y;
 		//System.out.println("x:"+ xth_panel+ " y:"+ yth_panel);
@@ -112,8 +130,6 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	@Override
 	// Mouse Left Panel
 	public void mouseExited(MouseEvent e) {
-		xth_panel = -1;
-		yth_panel = -1;
 		selected=false;
 		//System.out.println("x:"+ xth_panel+ " y:"+ yth_panel);
 
@@ -122,6 +138,7 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	// Mouse Released in Panel
 	public void mouseReleased(MouseEvent e) {
 		if(isDragged) {
+			//If We are Dragging, Make The Move at the end
 			if(!(x==xth_panel&&y==yth_panel)) {
 				game.move(xth_panel, yth_panel);
 			}
@@ -129,14 +146,21 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 		}
 	}
 
-	// Mouse Pressed in panel
-	public void mousePressed(MouseEvent e) {
-	}
+	// Mouse Pressed in panel, Don't Care
+	public void mousePressed(MouseEvent e) {}
 
+	/**
+	 * Getter for Selected
+	 * @return
+	 */
 	public boolean getSelected() {
-		// TODO Auto-generated method stub
 		return selected;
 	}
+	
+	/**
+	 * Setter for selected
+	 * @param k
+	 */
 	public void setSelected(Boolean k) {
 		// TODO Auto-generated method stub
 		selected = k;

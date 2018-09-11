@@ -23,6 +23,8 @@ public class Game_Panel  extends JPanel{
 		Cell_Panel.setBoard(view.getBoard());
 		cp= new Cell_Panel[64];
 		int count =0;
+		
+		//Generate the 64 Tiles
 		this.setLayout(new GridLayout(8, 8));
 		for(int i=7; i>=0; i--) {
 			for(int j=0; j<8; j++) {
@@ -35,7 +37,13 @@ public class Game_Panel  extends JPanel{
 		this.setPreferredSize(new Dimension(816, 816));
 		this.setBorder(BorderFactory.createLineBorder(Color.black, 2));
 	}
-
+	
+	/**
+	 * Gets The Selected At i,j
+	 * @param i
+	 * @param j
+	 * @return
+	 */
 	public boolean getSelected(int i, int j) {
 		try {
 			return cp[i*8+j].getSelected();
@@ -43,12 +51,17 @@ public class Game_Panel  extends JPanel{
 			return true;
 		}
 	}
+	
+	/**
+	 * Sets The Selected At i,j
+	 * @param i
+	 * @param j
+	 * @return
+	 */
 	public  void setSelected(int i, int j, Boolean k) {
 		try {
 			cp[i*8+j].setSelected(k);
-		}catch(ArrayIndexOutOfBoundsException e) {
-
-		}
+		}catch(ArrayIndexOutOfBoundsException e) {}
 	}
 
 }
