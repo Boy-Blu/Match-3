@@ -32,7 +32,7 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	 */
 	public Cell_Panel(int i, int j) {
 		this.setPreferredSize(new Dimension(view.getWidth() / 8, view.getHeight() / 8));
-		this.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+		this.setBorder(BorderFactory.createLineBorder(Color.decode("#191716"), 2));
 		selected = false;
 
 		this.x = i;

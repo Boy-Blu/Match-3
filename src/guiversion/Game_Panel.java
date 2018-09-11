@@ -33,9 +33,9 @@ public class Game_Panel  extends JPanel{
 				count++;
 			}
 		}
-		this.setBackground(Color.blue.darker().darker());
+		this.setBackground(Color.decode("#191716"));
 		this.setPreferredSize(new Dimension(816, 816));
-		this.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+		this.setBorder(BorderFactory.createLineBorder(Color.decode("#191716"), 2));
 	}
 	
 	/**
