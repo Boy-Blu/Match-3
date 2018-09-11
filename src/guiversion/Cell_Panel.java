@@ -15,23 +15,30 @@ import gamemodel.Board;
 import gamemodel.Type;
 
 public class Cell_Panel extends JPanel implements MouseListener, Observer, MouseMotionListener{
-	private static boolean isDragged = false;
-	private static Board game = null;
-	private static Game_Panel view = null;
+	private static boolean isDragged = false; //If we are dragging or clicking
+	private static Board game = null; //The Game the Cells are attached to
+	private static Game_Panel view = null; // the View Cells are a part of
 
-	private static int xth_panel, yth_panel =0;
-	private static int xCurr, yCurr =0;
-	private int x, y;
-	private boolean selected;
+	private static int xth_panel, yth_panel =0; //The accesssed Panel
+	private static int xCurr, yCurr =0; // The Previous Panel, For Button debounce
+	
+	private int x, y;// 
+	private boolean selected;//If the cell was a selected button debounce
 
+	/**
+	 * Constructor
+	 * @param i The I Position of the Cell
+	 * @param j The J position of the Cell
+	 */
 	public Cell_Panel(int i, int j) {
 		this.setPreferredSize(new Dimension(view.getWidth() / 8, view.getHeight() / 8));
 		this.setBorder(BorderFactory.createLineBorder(Color.black, 2));
-		this.setBackground(ColourFactory.makeColour(game.getGrid()[x][y].getTile().getColour()));
 		selected = false;
 
 		this.x = i;
 		this.y = j;
+		
+		this.setBackground(ColourFactory.makeColour(game.getGrid()[x][y].getTile().getColour()));
 		addMouseListener(this);
 		addMouseMotionListener(this);
 		game.addObserver(this);
@@ -64,8 +71,8 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	public void update(Observable o, Object arg) {
 		Board b = (Board)o;
 		this.setBackground((b.getGrid()[x][y].getColour()==Type.SELECTED)?
-				ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()).darker().darker():
-					ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()).darker());
+				ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()).darker():
+					ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()));
 	}
 
 	// For Dragged Mode
