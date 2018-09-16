@@ -43,7 +43,19 @@ public class MoveCommandInvoker {
 		}
 		return false;
 	}
+	
+	/**
+	 * Clears the MoveCommand array list, emptying it.
+	 */
+	public void removeAll(){
+		mc.clear();
+	}
 
+	/**
+	 * Returns whether or not the given cell is in the MoveCommand list
+	 * @param c The cell to check
+	 * @return true if the MoveCommand list has the cell c
+	 */
 	public boolean hasCell(Cell c) {
 		for(int i =0; i<mc.size(); i++) {
 			if(mc.get(i).getCell()==c) {

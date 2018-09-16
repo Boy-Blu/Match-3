@@ -10,15 +10,18 @@ public class Match_Strat_Click implements Strategy_Match{
 		// Find all the cells with matching colours to the given cell on the board in position i,j
 		Cell cur = b.getGrid()[i][j];
 
-		// Confirm the previously made move's selection
-		if(b.getMCI().hasCell(cur)){
+		// Fix thing
+		if(b.getMCI().getSize() != 0 && !b.getMCI().hasCell(cur)){
+			System.out.println(b.getMCI().getSize());
+			b.getMCI().removeAll();
+		}
+		else if(b.getMCI().hasCell(cur)){ // Confirm the previously made move's selection
 			b.getMCI().execute();
 			b.dropAndFill();
 			b.makeMove();
 			return;
-			
 		}
-
+		
 		// List of visited cells (matching cells) and queue for breadth first search
 		LinkedList<Cell> queue = new LinkedList<Cell>();
 		ArrayList<Cell> visited = new ArrayList<Cell>();
