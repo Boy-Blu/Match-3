@@ -48,6 +48,9 @@ public class MoveCommandInvoker {
 	 * Clears the MoveCommand array list, emptying it.
 	 */
 	public void removeAll(){
+		for(int i =0; i<mc.size(); i++) {
+			(mc.get(i)).removeCell();
+		}
 		mc.clear();
 	}
 

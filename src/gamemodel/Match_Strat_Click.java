@@ -11,14 +11,15 @@ public class Match_Strat_Click implements Strategy_Match{
 		Cell cur = b.getGrid()[i][j];
 
 		// Fix thing
-		if(b.getMCI().getSize() != 0 && !b.getMCI().hasCell(cur)){
-			System.out.println(b.getMCI().getSize());
-			b.getMCI().removeAll();
-		}
-		else if(b.getMCI().hasCell(cur)){ // Confirm the previously made move's selection
+
+		if(b.getMCI().hasCell(cur)){ // Confirm the previously made move's selection
 			b.getMCI().execute();
 			b.dropAndFill();
 			b.makeMove();
+			return;
+		}else if(b.getMCI().getSize() != 0){
+			System.out.println(b.getMCI().getSize());
+			b.getMCI().removeAll();
 			return;
 		}
 		
