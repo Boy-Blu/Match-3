@@ -18,7 +18,6 @@ public class Match_Strat_Click implements Strategy_Match{
 			b.makeMove();
 			return;
 		}else if(b.getMCI().getSize() != 0){
-			System.out.println(b.getMCI().getSize());
 			b.getMCI().removeAll();
 			return;
 		}
