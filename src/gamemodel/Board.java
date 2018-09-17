@@ -33,10 +33,9 @@ public class Board extends Observable{
 		Random rn = new Random();
 
 		movelist = new ArrayList<Cell>();
-
 		sm = new Match_Strat_Click(); //Change this to test, we can work on a better way do it later
-
-		move =0;
+		move = 0;
+		score = 0;
 
 		grid = new Cell[m][n];
 		mci = new MoveCommandInvoker();
@@ -226,7 +225,10 @@ public class Board extends Observable{
 	 * @param length The length of the match
 	 */
 	public void incrementScore(int length){
-		double result = Math.log(length) / Math.log(2);
-		score += result;
+		score += 10 * length * Math.log(length) / Math.log(2);
+	}
+	
+	public double getScore(){
+		return score;
 	}
 }

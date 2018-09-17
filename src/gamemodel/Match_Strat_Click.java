@@ -10,12 +10,12 @@ public class Match_Strat_Click implements Strategy_Match{
 		// Find all the cells with matching colours to the given cell on the board in position i,j
 		Cell cur = b.getGrid()[i][j];
 
-		// Fix thing
-
 		if(b.getMCI().hasCell(cur)){ // Confirm the previously made move's selection
+			b.incrementScore(b.getMCI().getSize());
 			b.getMCI().execute();
 			b.dropAndFill();
 			b.makeMove();
+			System.out.println("Score: " + b.getScore());
 			return;
 		}else if(b.getMCI().getSize() != 0){
 			b.getMCI().removeAll();
