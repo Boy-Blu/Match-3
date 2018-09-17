@@ -2,6 +2,7 @@ package guiversion;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -36,6 +37,11 @@ public class Bottom_Panel  extends JPanel implements Observer{
 //					ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()));
 	}
 	
+	@Override
+	public void paint(Graphics g)
+	{
+	   g.drawString("abc", 25, 25);
+	}
 	
 
 
