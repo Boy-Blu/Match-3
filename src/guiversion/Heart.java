@@ -26,14 +26,26 @@ public class Heart extends Shape{
 	 * @param t the thickness
 	 */
 	public Heart(Point p, int w, int h, String fill, Color c1, Color c2, int t){
-		super(p, c1, c2, fill,(t+2)/2);// Want to set the thickness to half size, otherwise we get a weird heart
+		//super(p, c1, c2, fill,(t+2)/2);// Want to set the thickness to half size, otherwise we get a weird heart
 		this.width = w;
 		this.height = h;
 		xPts = new int[4];
 		yPts = new int[4];
 		this.setPoints();
-
 	}
+
+	public Heart(){
+	}
+
+	public void updateShape(int x, int y, int w, int h) {
+		this.setHeight(h);
+		this.setWidth(w);
+		this.setAnchorPoint(new Point(x,y));
+		
+		this.setPoints();
+	}
+
+
 
 	/**
 	 * Creates the the points for the bottom V of the heart
@@ -67,23 +79,23 @@ public class Heart extends Shape{
 
 		int x = this.anchorPoint.getX();
 		int y = this.anchorPoint.getY();
-		graphics.setStroke(new BasicStroke(this.getThickness()));
+		graphics.setStroke(new BasicStroke(1));
 
 		int s3 = (int) ((width*(int)Math.sqrt(3))/4);// an important value for finding points
 		int j = x-width-s3; //a refrence point for the top left bump
 		int k = y-height/2-height/4;// A refrence point for the two bumps
 		//bumps are those upsidedown 3's on a heart
 
-		if (this.getFill()) {
-			graphics.setColor(this.getShapesFillColor());
-			//the V
-			graphics.fillPolygon(xPts, yPts, 4);
-			//the Bumps
-			graphics.fillOval(j, k, width+s3, height);
-			graphics.fillOval(x, k, width+s3, height);
 
-		}
-		graphics.setColor(this.getShapesOutlineColor());
+		graphics.setColor(Color.decode("#44AF69"));
+		//the V
+		graphics.fillPolygon(xPts, yPts, 4);
+		//the Bumps
+		graphics.fillOval(j, k, width+s3, height);
+		graphics.fillOval(x, k, width+s3, height);
+
+
+		graphics.setColor(Color.decode("#FFFFFF"));
 		//the V
 		graphics.drawLine(xPts[0], yPts[0], xPts[1], yPts[1]);
 		graphics.drawLine(xPts[2], yPts[2],  xPts[1], yPts[1]);

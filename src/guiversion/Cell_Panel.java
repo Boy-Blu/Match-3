@@ -2,6 +2,8 @@ package guiversion;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -14,7 +16,7 @@ import javax.swing.JPanel;
 import gamemodel.Board;
 import gamemodel.Type;
 
-public class Cell_Panel extends JPanel implements MouseListener, Observer, MouseMotionListener{
+public class Cell_Panel extends JPanel implements MouseListener, Observer, MouseMotionListener, ComponentListener{
 	private static boolean isDragged = false; //If we are dragging or clicking
 	private static Board game = null; //The Game the Cells are attached to
 	private static Game_Panel view = null; // the View Cells are a part of
@@ -43,6 +45,7 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 		//Add listener + observer
 		addMouseListener(this);
 		addMouseMotionListener(this);
+		addComponentListener(this);
 		game.addObserver(this);
 	}
 	
@@ -165,5 +168,14 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 		// TODO Auto-generated method stub
 		selected = k;
 	}
+
+	@Override
+	public void componentResized(ComponentEvent e) {
+		// TODO Auto-generated method stub
+	}
+
+	public void componentMoved(ComponentEvent e) {}
+	public void componentShown(ComponentEvent e) {}
+	public void componentHidden(ComponentEvent e) {}
 
 }

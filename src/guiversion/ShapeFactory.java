@@ -1,7 +1,5 @@
 package guiversion;
 
-import java.awt.Color;
-import java.awt.Shape;
 
 public class ShapeFactory {
 	/**
@@ -11,7 +9,7 @@ public class ShapeFactory {
 	 */
 	public static Shape makeShape(int i){
 		switch(i){
-		case 1: return null;
+		case 1: return (Shape) new Heart();
 		case 2: return null;
 		case 3: return null;
 		case 4: return null;
