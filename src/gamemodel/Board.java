@@ -14,6 +14,7 @@ public class Board extends Observable{
 	private ArrayList<Cell> movelist ;
 	private MoveCommandInvoker mci;
 	private int move;
+	private double score;
 
 	/**
 	 * 	Creates a Board with 8, 8 board
@@ -112,8 +113,6 @@ public class Board extends Observable{
 	public String toString() {
 		String s = "";
 
-
-
 		for (int i =grid.length-1; i>=0; i--) {
 			s += "Row "+(i)+":  ";
 
@@ -210,7 +209,7 @@ public class Board extends Observable{
 	 * dropped tiles
 	 */
 	public void makeMove() {
-		move ++;
+		move++;
 
 	}
 
@@ -220,6 +219,14 @@ public class Board extends Observable{
 	 */
 	public int getMove() {
 		return move;
-
+	}
+	
+	/**
+	 * Increments the score based on the length of the match
+	 * @param length The length of the match
+	 */
+	public void incrementScore(int length){
+		double result = Math.log(length) / Math.log(2);
+		score += result;
 	}
 }
