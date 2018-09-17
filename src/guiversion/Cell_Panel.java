@@ -2,6 +2,8 @@ package guiversion;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.MouseEvent;
@@ -27,6 +29,7 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	private int x, y;// 
 	private boolean selected; 					//If the cell was a selected button debounce
 
+	private Shape shape;
 	/**
 	 * Constructor
 	 * @param i The I Position of the Cell
@@ -41,12 +44,28 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 		this.y = j;
 		
 		this.setBackground(ColourFactory.makeColour(game.getGrid()[x][y].getTile().getColour()));
+		this.shape = ShapeFactory.makeShape(game.getGrid()[x][y].getTile().getColour());
 		
+		updateShape();
 		//Add listener + observer
 		addMouseListener(this);
 		addMouseMotionListener(this);
 		addComponentListener(this);
 		game.addObserver(this);
+		this.repaint();
+	}
+	
+	private void updateShape() {
+		this.shape.updateShape(this.getHeight()/2, this.getWidth()/2, this.getWidth()/16, this.getHeight()/16);
+	}
+	
+	public void paintComponent(Graphics g) {
+
+		super.paintComponent(g); //paint background
+		Graphics2D g2d = (Graphics2D) g; // lets use the advanced api
+
+		this.shape.execute(g2d);
+		g2d.dispose();
 	}
 	
 	/**
@@ -89,9 +108,11 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	//What Happens when Update is called
 	public void update(Observable o, Object arg) {
 		Board b = (Board)o;
+		updateShape();
 		this.setBackground((b.getGrid()[x][y].getColour()==Type.SELECTED)?
 				ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()).darker():
 					ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()));
+		this.repaint();
 	}
 
 	/**
@@ -172,6 +193,8 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	@Override
 	public void componentResized(ComponentEvent e) {
 		// TODO Auto-generated method stub
+		updateShape() ;
+		this.repaint();
 	}
 
 	public void componentMoved(ComponentEvent e) {}

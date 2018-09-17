@@ -1,5 +1,7 @@
 package guiversion;
 
+import java.awt.Graphics2D;
+
 public abstract class Shape {
 	protected Point anchorPoint;
 	private int Width;
@@ -42,4 +44,6 @@ public abstract class Shape {
 	}
 	
 	public abstract void updateShape(int x, int y, int w, int h);
+
+	public abstract void execute(Graphics2D graphics);
 }

@@ -29,9 +29,10 @@ public class ShapeCircle extends Shape{
 	}
 
 	public void updateShape(int x, int y, int w, int h) {
+		this.setAnchorPoint(new Point(x,y));
 		this.setHeight(h);
 		this.setWidth(h);
-		this.setAnchorPoint(new Point(x,y));
+		
 	}
 
 	public int getRadius() {
