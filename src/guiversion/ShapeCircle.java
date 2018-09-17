@@ -23,16 +23,16 @@ public class ShapeCircle extends Shape{
 		//super(centre, c1, c2, fill , t);
 		this.radius = radius;
 	}
-	
+
 	public ShapeCircle() {
-		
+
 	}
 
 	public void updateShape(int x, int y, int w, int h) {
 		this.setAnchorPoint(new Point(x,y));
 		this.setHeight(h);
 		this.setWidth(h);
-		
+
 	}
 
 	public int getRadius() {
@@ -50,18 +50,13 @@ public class ShapeCircle extends Shape{
 
 
 		graphics.setColor(Color.decode("#F8333C"));
-		graphics.fillOval(x-radius, y-radius, radius*2, radius*2);
+		graphics.fillOval(0,0, this.getWidth()*16, this.getHeight()*16);
 		graphics.setColor(Color.black);
 
 		graphics.setColor(Color.black);
-		if(radius>=1/2) {
-			graphics.drawOval(x-radius, y-radius, radius*2, radius*2);
-		}else {
-			//We get a weird donut without this
-			graphics.fillOval(x-radius-1/2,
-					y-radius-1/2, radius*2+1,
-					radius*2+1);
-		}
+
+		graphics.drawOval(0, 0 , this.getWidth()*16, this.getHeight()*16);
+
 	}
 
 }

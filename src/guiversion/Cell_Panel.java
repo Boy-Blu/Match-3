@@ -56,7 +56,7 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	}
 	
 	private void updateShape() {
-		this.shape.updateShape(this.getHeight()/2, this.getWidth()/2, this.getWidth()/16, this.getHeight()/16);
+		this.shape.updateShape(this.getHeight()/3, this.getWidth()/3, this.getWidth()/16, this.getHeight()/16);
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -108,10 +108,12 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	//What Happens when Update is called
 	public void update(Observable o, Object arg) {
 		Board b = (Board)o;
-		updateShape();
+		
+		this.shape = ShapeFactory.makeShape(game.getGrid()[x][y].getTile().getColour());
 		this.setBackground((b.getGrid()[x][y].getColour()==Type.SELECTED)?
 				ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()).darker():
 					ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()));
+		updateShape();
 		this.repaint();
 	}
 
