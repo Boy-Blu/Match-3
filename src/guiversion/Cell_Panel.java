@@ -56,7 +56,7 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	}
 	
 	private void updateShape() {
-		this.shape.updateShape(this.getHeight()/3, this.getWidth()/3, this.getWidth()/16, this.getHeight()/16);
+		this.shape.updateShape(this.getWidth()/3, this.getHeight()/3, this.getWidth()/16, this.getHeight()/16);
 	}
 	
 	public void paintComponent(Graphics g) {
