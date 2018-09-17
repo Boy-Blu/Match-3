@@ -228,6 +228,10 @@ public class Board extends Observable{
 		score += 10 * length * Math.log(length) / Math.log(2);
 	}
 	
+	/**
+	 * Method to get score of the current board
+	 * @return The score of the current board
+	 */
 	public double getScore(){
 		return score;
 	}
