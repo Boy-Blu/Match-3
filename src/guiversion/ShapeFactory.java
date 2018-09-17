@@ -9,14 +9,14 @@ public class ShapeFactory {
 	 */
 	public static Shape makeShape(int i){
 		switch(i){
-		case 1: return (Shape) new Heart();
-		case 2: return null;
-		case 3: return null;
-		case 4: return null;
-		case 5: return null;
-		case 6: return null;
-		case 7: return null;
-		default: return null;
+		case 1: return (Shape) new ShapeHeart();
+		case 2: return (Shape) new ShapeCircle();
+		case 3: return (Shape) new ShapeHeart();
+		case 4: return (Shape) new ShapeCircle();
+		case 5: return (Shape) new ShapeHeart();
+		case 6: return (Shape) new ShapeCircle();
+		case 7: return (Shape) new ShapeHeart();
+		default: return (Shape) new ShapeHeart();
 		}
 	}
 

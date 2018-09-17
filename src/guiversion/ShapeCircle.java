@@ -4,7 +4,7 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class Circle extends Shape{
+public class ShapeCircle extends Shape{
 	// the radius of the circle
 	private int radius;
 	private static final String SHAPE_TYPE = "Circle";
@@ -19,12 +19,12 @@ public class Circle extends Shape{
 	 * @param c
 	 * 			string of desired colour
 	 */
-	public Circle(Point centre, int radius, String fill, Color c1, Color c2, int t){
+	public ShapeCircle(Point centre, int radius, String fill, Color c1, Color c2, int t){
 		//super(centre, c1, c2, fill , t);
 		this.radius = radius;
 	}
 	
-	public Circle() {
+	public ShapeCircle() {
 		
 	}
 

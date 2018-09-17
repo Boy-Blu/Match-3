@@ -11,7 +11,7 @@ import java.awt.Graphics2D;
  * @author AGruskovnjak
  *
  */
-public class Heart extends Shape{
+public class ShapeHeart extends Shape{
 
 	private int width, height;
 	private int[] xPts, yPts;
@@ -25,7 +25,7 @@ public class Heart extends Shape{
 	 * @param c the color
 	 * @param t the thickness
 	 */
-	public Heart(Point p, int w, int h, String fill, Color c1, Color c2, int t){
+	public ShapeHeart(Point p, int w, int h, String fill, Color c1, Color c2, int t){
 		//super(p, c1, c2, fill,(t+2)/2);// Want to set the thickness to half size, otherwise we get a weird heart
 		this.width = w;
 		this.height = h;
@@ -34,14 +34,13 @@ public class Heart extends Shape{
 		this.setPoints();
 	}
 
-	public Heart(){
+	public ShapeHeart(){
 	}
 
 	public void updateShape(int x, int y, int w, int h) {
 		this.setHeight(h);
 		this.setWidth(w);
 		this.setAnchorPoint(new Point(x,y));
-		
 		this.setPoints();
 	}
 

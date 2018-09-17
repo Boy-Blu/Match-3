@@ -17,15 +17,15 @@ import gamemodel.Board;
 import gamemodel.Type;
 
 public class Cell_Panel extends JPanel implements MouseListener, Observer, MouseMotionListener, ComponentListener{
-	private static boolean isDragged = false; //If we are dragging or clicking
-	private static Board game = null; //The Game the Cells are attached to
-	private static Game_Panel view = null; // the View Cells are a part of
+	private static boolean isDragged = false; 	//If we are dragging or clicking
+	private static Board game = null; 			//The Game the Cells are attached to
+	private static Game_Panel view = null; 		// the View Cells are a part of
 
-	private static int xth_panel, yth_panel =0; //The accesssed Panel
-	private static int xCurr, yCurr =0; // The Previous Panel, For Button debounce
+	private static int xth_panel, yth_panel =0; 	//The accessed Panel
+	private static int xCurr, yCurr =0; 			// The Previous Panel, For Button debounce
 	
 	private int x, y;// 
-	private boolean selected;//If the cell was a selected button debounce
+	private boolean selected; 					//If the cell was a selected button debounce
 
 	/**
 	 * Constructor
