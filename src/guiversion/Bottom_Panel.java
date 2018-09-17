@@ -2,7 +2,12 @@ package guiversion;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -30,19 +35,15 @@ public class Bottom_Panel  extends JPanel implements Observer{
 	//What Happens when Update is called
 	public void update(Observable o, Object arg) {
 		Board b = (Board)o;
-		System.out.println("Hello");
-		// The text to display?
-//		this.setBackground((b.getGrid()[x][y].getColour()==Type.SELECTED)?
-//				ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()).darker():
-//					ColourFactory.makeColour(b.getGrid()[x][y].getTile().getColour()));
+		this.repaint();
 	}
 	
 	@Override
-	public void paint(Graphics g)
-	{
-	   g.drawString("abc", 25, 25);
-	}
-	
-
-
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g2.setFont(new Font("Arial", Font.PLAIN, 25)); 
+        g2.drawString("Moves Made: " + view.game.getMove(), 25, 75/2 + 8);
+    }
 }
