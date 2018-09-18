@@ -1,5 +1,6 @@
 package guiversion;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -37,7 +38,7 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 	 */
 	public Cell_Panel(int i, int j) {
 		this.setPreferredSize(new Dimension(view.getWidth() / 8, view.getHeight() / 8));
-		this.setBorder(BorderFactory.createLineBorder(Color.decode("#191716"), 2));
+		
 		selected = false;
 
 		this.x = i;
@@ -46,6 +47,7 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 		this.setBackground(ColourFactory.makeColour(game.getGrid()[x][y].getTile().getColour()));
 		this.shape = ShapeFactory.makeShape(game.getGrid()[x][y].getTile().getColour());
 		
+		
 		updateShape();
 		//Add listener + observer
 		addMouseListener(this);
@@ -53,17 +55,24 @@ public class Cell_Panel extends JPanel implements MouseListener, Observer, Mouse
 		addComponentListener(this);
 		game.addObserver(this);
 		this.repaint();
+		this.setBorder(BorderFactory.createLineBorder(Color.decode("#191716"), 5));
 	}
 	
 	private void updateShape() {
-		this.shape.updateShape(this.getWidth()/3, this.getHeight()/3, this.getWidth()/16, this.getHeight()/16);
+		this.shape.updateShape(this.getWidth()/2, this.getHeight()/2, this.getWidth()/16, this.getHeight()/16);
 	}
 	
 	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g); //paint background
 		Graphics2D g2d = (Graphics2D) g; // lets use the advanced api
+		
+		
+		g2d.setStroke(new BasicStroke(1));
+		g2d.setColor(Color.decode("#000000"));
 
+		g2d.drawRect(0, 0 , this.getWidth(), this.getHeight());
+		
 		this.shape.execute(g2d);
 		g2d.dispose();
 	}
