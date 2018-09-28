@@ -21,7 +21,6 @@ public class Match_Strat_Chain implements Strategy_Match{
 			//a Move is repeated
 			if(b.getMCI().getLastCell()==insert&&b.getMCI().getSize()>2) {
 				b.incrementScore(b.getMCI().getSize());
-				System.out.println("Score: " + b.getScore());
 				//want to make move
 				b.getMCI().execute();
 				b.dropAndFill();

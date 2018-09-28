@@ -1,14 +1,18 @@
 package guiversion;
 
 import java.awt.BorderLayout;
+import java.util.Observable;
+import java.util.Observer;
+
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import gamemodel.Board;
 
 /*
  * Creates the Jframe
  */
-public class GuiView extends JFrame {
+public class GuiView extends JFrame implements Observer {
 	
 	Board game;
 	private Game_Panel gp;
@@ -35,10 +39,20 @@ public class GuiView extends JFrame {
 
 		this.setJMenuBar(nb);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		game.addObserver(this);
 	}
 	
 	public Board getBoard() {
 		return game;
 	}
 
+	//What Happens when Update is called
+	public void update(Observable o, Object arg) {
+		Board b = (Board)o;
+		if(!b.checkForMove()){
+			JOptionPane end = new JOptionPane();
+			JOptionPane.showMessageDialog(this,
+				    "Game over! No more moves!");
+		}
+	}
 }

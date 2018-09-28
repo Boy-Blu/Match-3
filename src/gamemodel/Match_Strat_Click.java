@@ -15,7 +15,6 @@ public class Match_Strat_Click implements Strategy_Match{
 			b.getMCI().execute();
 			b.dropAndFill();
 			b.makeMove();
-			System.out.println("Score: " + b.getScore());
 			return;
 		}else if(b.getMCI().getSize() != 0){
 			b.getMCI().removeAll();
